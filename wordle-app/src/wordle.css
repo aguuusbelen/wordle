@@ -1,0 +1,46 @@
+.wordle {
+  text-align: center;
+}
+
+.inputs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+input {
+  margin: 5px;
+  font-size: 20px;
+  border-radius: 10%;
+  text-transform: uppercase;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10%;
+  background-color: rgb(64, 246, 188);
+  border: none;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.verde {
+  background-color: #99ff99;
+}
+
+.amarillo {
+  background-color: #ffff99;
+}
+
+.gris {
+  background-color: #cccccc;
+}
