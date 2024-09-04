@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./wordle.css";
+import wordleService from "./WordleService";
 
 const Wordle = () => {
   const [letters, setLetters] = useState([
@@ -35,8 +36,11 @@ const Wordle = () => {
     }
   };
 
-  const verificar = () => {
+  const verificar = async () => {
     const intentoActual = letters[letters.length - 1];
+    await wordleService.postVerify(intentoActual).then((result) => {
+      console.log(result);
+    });
     if (Object.values(intentoActual).every((letra) => letra.length === 1)) {
       const resultadoArray = Array.from({ length: 5 }, (_, i) =>
         intentoActual[`letra${i + 1}`] === palabraCorrecta[i]
