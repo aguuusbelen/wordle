@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wordle</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Wordle</h1>
+      <input id="letra1" maxlength="1" />
+      <input id="letra2" maxlength="1" />
+      <input id="letra3" maxlength="1" />
+      <input id="letra4" maxlength="1" />
+      <input id="letra5" maxlength="1" />
+      <button onclick="verificar()">Verificar</button>
+      <p id="resultado"></p>
+    </div>
+    <script>
+      async function verificar() {
+        const letra1 = document.getElementById("letra1").value;
+        const letra2 = document.getElementById("letra2").value;
+        const letra3 = document.getElementById("letra3").value;
+        const letra4 = document.getElementById("letra4").value;
+        const letra5 = document.getElementById("letra5").value;
+
+        const response = await fetch(
+          `/wordle/verificar?letra1=${letra1}&letra2=${letra2}&letra3=${letra3}&letra4=${letra4}&letra5=${letra5}`,
+          {
+            method: "POST",
+          }
+        );
+        const result = await response.json();
+        document.getElementById("resultado").textContent =
+          JSON.stringify(result);
+      }
+    </script>
+  </body>
+</html>
